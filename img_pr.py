@@ -1,8 +1,13 @@
-pip install opencv-contrib-python
+
 import cv2
+from google.colab.patches import cv2_imshow
 import matplotlib.pyplot as plt
 import numpy as np
 img = cv2.imread("eg1.jpg", 1)
+
+if img is None:
+    print("Error: Image not found or could not be read.")
+    exit()
 
 h, w, c = img.shape
 print(img.shape)
@@ -10,14 +15,14 @@ print("Dimensions of the image is:nnHeight:", h, "pixelsnWidth:", w, "pixelsnNum
 print(type(img))
 print(img.dtype)
 print(img)
-cv2.imshow('eg1.jpg', img)
+cv2_imshow('eg1.jpg', img)
 
 k = cv2.waitKey(0)
 if k == 27 or k == ord('q'):
     cv2.destroyAllWindows()
 
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-cv2.imwrite('Mandrill_grey.jpg', gray)
+cv2.imwrite('eg1.jpg', gray)
 
 def extract_bit_plane(cd):
     c1 = np.mod(cd, 2)
