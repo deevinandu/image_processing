@@ -15,7 +15,7 @@ print("Dimensions of the image is:nnHeight:", h, "pixelsnWidth:", w, "pixelsnNum
 print(type(img))
 print(img.dtype)
 print(img)
-cv2_imshow('eg1.jpg', img)
+cv2_imshow(img)
 
 k = cv2.waitKey(0)
 if k == 27 or k == ord('q'):
